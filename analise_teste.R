@@ -49,13 +49,13 @@ sint <- monitoramento |>
 
 notific_xts <- xts::xts(x = notific$count, order.by = notific$datanot)
 sint_xts <- xts::xts(x = sint$count, order.by = sint$data_sintomas)
-
+ 
 not_sint <- cbind(notific_xts, sint_xts)
 
 dygraphs::dygraph(not_sint) |> 
   dygraphs::dySeries("notific_xts", label = "Notificados") |> 
   dygraphs::dySeries("sint_xts", label = "Data dos sintomas") |> 
-  dygraphs::dyOptions(stackedGraph = TRUE)
+  dygraphs::dyOptions(stackedGraph = TRUE) 
 
 
 
