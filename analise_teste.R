@@ -46,7 +46,7 @@ sint <- monitoramento |>
   dplyr::summarise(count = dplyr::n()) |> 
   tidyr::drop_na(data_sintomas)
   
- 
+    
 notific_xts <- xts::xts(x = notific$count, order.by = notific$datanot)
 sint_xts <- xts::xts(x = sint$count, order.by = sint$data_sintomas)
  
