@@ -46,7 +46,7 @@ sint <- monitoramento |>
   dplyr::summarise(count = dplyr::n()) |> 
   tidyr::drop_na(data_sintomas)
 
-
+ 
 notific_xts <- xts::xts(x = notific$count, order.by = notific$datanot)
 sint_xts <- xts::xts(x = sint$count, order.by = sint$data_sintomas)
  
@@ -55,7 +55,10 @@ not_sint <- cbind(notific_xts, sint_xts)
 dygraphs::dygraph(not_sint) |> 
   dygraphs::dySeries("notific_xts", label = "Notificados") |> 
   dygraphs::dySeries("sint_xts", label = "Data dos sintomas") |> 
-  dygraphs::dyOptions(stackedGraph = TRUE) 
+  dygraphs::dyOptions(stackedGraph = TRUE) |> 
+  dygraphs::dyEvent(x = "2020-12-31", label = "2020", labelLoc = "top") |> 
+  dygraphs::dyEvent(x = "2021-12-31", label = "2021", labelLoc = "top") |> 
+  dygraphs::dyEvent(x = "2022-12-31", label = "2022", labelLoc = "top")
 
 
 
