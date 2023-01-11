@@ -46,13 +46,13 @@ sint <- monitoramento |>
   dplyr::summarise(count = dplyr::n()) |> 
   tidyr::drop_na(data_sintomas)
   
-    
+       
 notific_xts <- xts::xts(x = notific$count, order.by = notific$datanot)
 sint_xts <- xts::xts(x = sint$count, order.by = sint$data_sintomas)
  
 not_sint <- cbind(notific_xts, sint_xts)
 
-dygraphs::dygraph(not_sint) |> 
+dygraphs::dygraph(not_sint, main = "Casos notificados de COVID-19 em Belem-PA") |> 
   dygraphs::dySeries("notific_xts", label = "Notificados") |> 
   dygraphs::dySeries("sint_xts", label = "Data dos sintomas") |> 
   dygraphs::dyOptions(stackedGraph = TRUE) |> 
