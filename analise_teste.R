@@ -59,7 +59,7 @@ dygraphs::dygraph(not_sint, main = "Casos notificados de COVID-19 em Belem-PA") 
   dygraphs::dyEvent(x = "2020-12-31", label = "2020", labelLoc = "top") |> 
   dygraphs::dyEvent(x = "2021-12-31", label = "2021", labelLoc = "top") |> 
   dygraphs::dyEvent(x = "2022-12-31", label = "2022", labelLoc = "top")
-
+ 
 
 
 
